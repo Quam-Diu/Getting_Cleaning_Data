@@ -12,10 +12,10 @@ getData <- function() {
         ## c.1) Initial parameters: url where the data is obtained and the name given to the downloaded file
         
         zipUrl <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
-        zipName <- "./data/UCI HAR Dataset.zip"
+        zipName <- "UCI HAR Dataset.zip"
         
         ## c.2) If required, creates a directory for the file and downloads it (also if required) 
-        if(!file.exists("./data")){dir.create("./data")}
+        ##if(!file.exists("./data")){dir.create("./data")}
         if(!file.exists(zipName)){ download.file(zipUrl,destfile=zipName,method="curl")}
         
         ## c.3) Reads the required data from the zipped file
@@ -64,7 +64,6 @@ getData <- function() {
         ## and writes the data into a file
         act_tidy <- act_subtbl %>%
                         group_by(subject_id, activity_label) %>%
-                                summarise_each(funs(mean))
-        write.table(act_tidy,"./data/act_tidy.txt", sep=" ", row.names=FALSE)        
-
+                                summarise_each(funs(mean))     
+        write.table(act_tidy,"act_tidy.txt", sep=" ", row.names=FALSE)   
 }
