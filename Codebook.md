@@ -36,6 +36,7 @@ Please note:
 - The function "unz" is used to read files from the zip without unzipping it, so the file "UCI HAR Dataset.zip" should be in your working directory. The script will download the zip file if it doesn't find it in the working directory.
 
 Pseudocode
+
 1- Download the zipped data file (if required).
 
 2- Read the required files (based on the discussions on the forums of the project and my interpretation of what is required,
