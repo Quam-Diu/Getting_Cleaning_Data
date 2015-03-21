@@ -1,5 +1,11 @@
 
-getData <- {
+getData <- function() {
+        ## A) Parameters
+        ## This script has no parameters
+        
+        ## B) Objetive
+        ## To produce a tidy dataset from rawdata from an activity tracking experiment
+        ## See Readme for more details
         
         ## C) Procedure
         
@@ -13,6 +19,7 @@ getData <- {
         if(!file.exists(zipName)){ download.file(zipUrl,destfile=zipName,method="curl")}
         
         ## c.3) Reads the required data from the zipped file
+        ## Please note: The script was writed using OS X 10.1.1
         act_labels <- read.table(unz(zipName, filename = "UCI HAR Dataset/activity_labels.txt"))
         features <- read.table(unz(zipName, filename = "UCI HAR Dataset/features.txt"))
         subject_train <- read.table(unz(zipName, filename = "UCI HAR Dataset/train/subject_train.txt"))
@@ -61,11 +68,3 @@ getData <- {
         write.table(act_tidy,"./data/act_tidy.txt", sep=" ", row.names=FALSE)        
 
 }
-
-## transmute(act_subtbl, ifelse(activity_label == 1, "WALKING", activity_label))
-## transmute(act_subtbl, ifelse(activity_label == 2, "WALKING_UPSTAIRS", activity_label))
-## transmute(act_subtbl, ifelse(activity_label == 5, "STANDING", activity_label))
-## act_subtbl$activity_label <- ifelse(act_subtbl$activity_label == act_labels[i,1], act_labels[i,2], act_subtbl$activity_label)
-## for (i in nrow(act_labels)) {
-##         act_subtbl$activity_label <- ifelse(act_subtbl$activity_label == act_labels[i,1], act_labels[i,2], act_subtbl$activity_label)
-## }
