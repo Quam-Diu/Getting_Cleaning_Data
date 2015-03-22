@@ -100,7 +100,7 @@ The descriptions of variables [03] to [88] are equivalent.
 [03]	tBodyAcc-mean()-X
 - Class: num
 - Type: Continuous, normalized and bounded within [-1,1]
-- Unit of measurement: For the data obtained from the gyroscope is rads/second, for the data obtained from the acelerometer this   information is not provided
+- Unit of measurement: Data is normalized, however for the original data obtained from the gyroscope is radians/second, for the data obtained from the acelerometer this information is not provided
 - Description: Mean of the correspondant variable of the raw data, grouped by volunteer and by activity.
 - Lavels: None
 - Schema: [t/f][Body/Gravity][Acc/Gyro][Jerk][Mag][mean/std][X/Y/Z]
